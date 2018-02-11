@@ -1,0 +1,12 @@
+{
+  "name": "Player-Stats-Card",
+  "version": "1.0.0",
+  "description": "Gulp template",
+  "private": true,
+  "author": "Ash Robbins",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^2.2.0",
+    "gulp-sass": "^2.0.0"
+  }
+}

@@ -5,6 +5,7 @@
 
 // UTLITIES
 @import 'utilities/mixins/foundation_units';
+@import 'utilities/mixins/opacity';
 
 // BASE
 @import 'base/helpers';
@@ -13,3 +14,4 @@
 @import 'base/headings';
 
 // LAYOUT
+@import 'layout/playerCard';

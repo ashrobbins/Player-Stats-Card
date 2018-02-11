@@ -1,0 +1,80 @@
+// =======================
+// == Player Stats Card ==
+// =======================
+
+.c-playerCard {
+    margin-top:77px;
+
+    width: rem-calc(300);
+    background-color: $white;
+}
+.c-playerSelector {
+    padding: rem-calc(14 16 20);
+}
+.c-playerSelector select {
+    width: 100%;
+    height: rem-calc(40);
+    padding: rem-calc(0 14);
+    background-color: $grey;
+    background-image: url(../assets/select-arrow.png);
+    background-position: calc(100% - 14px) 17px;
+    background-repeat: no-repeat;
+    border: 0;
+    font-size: rem-calc(16);
+    line-height: rem-calc(40);
+}
+
+
+.c-playerCard__image {
+    position: relative;
+    height: rem-calc(220);
+    margin: 0;
+    background-image: url(../assets/background-pattern.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+.c-playerCard__image img {
+    position: absolute;
+    left: rem-calc(6);
+    bottom: 0;
+    width: rem-calc(170);
+}
+
+
+.c-playerCard__details {
+    padding: rem-calc(16);
+    background-color: $primary-color;
+}
+.c-playerCard__details [class^="c-heading"] {
+    line-height: 1;
+}
+.c-playerCard__details .c-heading--name {
+    margin-bottom: rem-calc(10);
+}
+.c-playerCard__details .c-heading--position {
+    margin-bottom: rem-calc(16);
+}
+.c-playerCard__stats {
+    width: 100%;
+    margin: 0;
+    color: $secondary-color;
+}
+.c-playerCard__stats li {
+    overflow: hidden;
+    margin: rem-calc(0 0 2);
+    background-color: $grey;
+    box-shadow: 0 0 rem-calc(8) o($secondary-color, 75%);
+}
+.c-statLabel,
+.c-statDetail {
+    padding: rem-calc(0 10);
+    line-height: rem-calc(40);
+}
+.c-statLabel {
+    float: left;
+}
+.c-statDetail {
+    float: right;
+    font-size: rem-calc(19);
+    font-weight: bold;
+}

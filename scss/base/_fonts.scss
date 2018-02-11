@@ -1,6 +1,7 @@
-/******************************************
-FONTS
-******************************************/
+// ===========
+// == Fonts ==
+// ===========
+
 @mixin font-face($font-family, $file-path, $font-weight, $font-style) {
   @font-face {
     font-family: $font-family;

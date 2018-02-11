@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -354,9 +353,6 @@ td,
 th {
   padding: 0; }
 
-/******************************************
-HELPER CLASSES
-******************************************/
 .u-no-list {
   list-style: none !important;
   margin-left: 0 !important;
@@ -366,9 +362,6 @@ HELPER CLASSES
 .u-hidden {
   display: none !important; }
 
-/******************************************
-FONTS
-******************************************/
 @font-face {
   font-family: "Antonio";
   src: url("/fonts/antonio-bold-webfont.woff2") format("woff2"), url("/fonts/antonio-bold-webfont.woff") format("woff");
@@ -398,7 +391,7 @@ section {
   display: block; }
 
 html {
-  font: 62.5%/1.2 "Source Sans Pro", Arial, "Helvetica Neue", Helvetica, sans-serif, Georgia, serif;
+  font: 62.5%/1.2 Arial, "Helvetica Neue", Helvetica, sans-serif, Georgia, serif;
   word-wrap: break-word;
   overflow-x: hidden; }
 
@@ -407,8 +400,8 @@ body {
   width: 100%; }
 
 body {
-  color: #body-text-color;
-  font: normal 400 2rem/1.5 "Source Sans Pro", Arial, "Helvetica Neue", Helvetica, sans-serif, Georgia, serif; }
+  color: #000;
+  font: normal 400 2rem/1.5 Arial, "Helvetica Neue", Helvetica, sans-serif, Georgia, serif; }
 
 .wrapper {
   width: 72rem;
@@ -430,7 +423,7 @@ li {
   margin-bottom: 0.8rem; }
 
 a {
-  color: #e5127d;
+  color: #e90052;
   text-decoration: none; }
 
 a:hover {
@@ -479,9 +472,9 @@ code {
   white-space: -o-pre-wrap;
   background-color: #f5f5f5;
   border: 1px solid #ccc;
-  background-color: #e5127d;
+  background-color: #e90052;
   border: 0;
-  color: #4a4a4a;
+  color: #000;
   font-size: 1.6rem;
   font-weight: normal; }
 
@@ -513,7 +506,7 @@ blockquote cite:before {
 hr {
   margin: 0.3rem 0;
   border: none;
-  border-top: 3px solid #e5127d; }
+  border-top: 3px solid #e90052; }
 
 address {
   margin: 0 0 1.2rem 0;
@@ -603,7 +596,8 @@ select {
           appearance: none;
   cursor: pointer;
   white-space: nowrap;
-  padding-right: 4.5rem; }
+  padding-right: 4.5rem;
+  border-radius: 0; }
 
 .select {
   position: relative;
@@ -618,60 +612,93 @@ select {
     height: 1.6rem;
     width: 1.6rem;
     border: 8px solid transparent;
-    border-top-color: #4a4a4a; }
+    border-top-color: #000; }
 
 @media only screen and (max-width: 500px) {
   body {
     font-size: 1.6rem; } }
 
-/******************************************
-HEADINGS
-******************************************/
-/**
- * By default, all headings are always ‘just a bit bigger’ than body copy.
- * Any font, size, color, etc. styling is done based on the purpose of the heading.
- * See classes below which detail styles for specific heading uses.
- */
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-top: 3rem;
-  font-family: "Antonio", Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #e5127d;
-  text-transform: uppercase; }
+.h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6 {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.3;
+  margin: 0 0 0.3rem;
+  font-weight: normal; }
 
-h1,
-.h1 {
-  font-size: 4rem;
-  margin: 0.8rem 0rem 1.2rem;
-  line-height: 1.2; }
-
-h2,
-.h2 {
-  font-size: 4rem;
-  margin-bottom: 1.6rem;
-  line-height: 1.2; }
-
-h3,
-.h3 {
-  font-size: 3rem;
-  margin-bottom: 1.4rem;
-  line-height: 1.2; }
-
-h4 {
+.c-heading--name {
   font-size: 2.2rem;
-  margin-bottom: 1.2rem; }
+  color: #fff; }
 
-h5 {
-  font-size: 1.8rem;
-  margin-bottom: 1.2rem; }
-
-h6 {
+.c-heading--position {
   font-size: 1.6rem;
-  margin-bottom: 1.2rem; }
+  color: #fff; }
 
-h2:first-child,
-h3:first-child,
-h4:first-child {
-  margin-top: 0; }
+.c-playerCard {
+  margin-top: 77px;
+  width: 30rem;
+  background-color: #fff; }
+
+.c-playerSelector {
+  padding: 1.4rem 1.6rem 2rem; }
+
+.c-playerSelector select {
+  width: 100%;
+  height: 4rem;
+  padding: 0 1.4rem;
+  background-color: #eaeaea;
+  background-image: url(../assets/select-arrow.png);
+  background-position: calc(100% - 14px) 17px;
+  background-repeat: no-repeat;
+  border: 0;
+  font-size: 1.6rem;
+  line-height: 4rem; }
+
+.c-playerCard__image {
+  position: relative;
+  height: 22rem;
+  margin: 0;
+  background-image: url(../assets/background-pattern.png);
+  background-position: top right;
+  background-repeat: no-repeat; }
+
+.c-playerCard__image img {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0;
+  width: 17rem; }
+
+.c-playerCard__details {
+  padding: 1.6rem;
+  background-color: #e90052; }
+
+.c-playerCard__details [class^="c-heading"] {
+  line-height: 1; }
+
+.c-playerCard__details .c-heading--name {
+  margin-bottom: 1rem; }
+
+.c-playerCard__details .c-heading--position {
+  margin-bottom: 1.6rem; }
+
+.c-playerCard__stats {
+  width: 100%;
+  margin: 0;
+  color: #38003c; }
+
+.c-playerCard__stats li {
+  overflow: hidden;
+  margin: 0 0 0.2rem;
+  background-color: #eaeaea;
+  box-shadow: 0 0 0.8rem #6a406d; }
+
+.c-statLabel,
+.c-statDetail {
+  padding: 0 1rem;
+  line-height: 4rem; }
+
+.c-statLabel {
+  float: left; }
+
+.c-statDetail {
+  float: right;
+  font-size: 1.9rem;
+  font-weight: bold; }

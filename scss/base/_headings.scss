@@ -1,53 +1,35 @@
-/******************************************
-HEADINGS
-******************************************/
-/**
- * By default, all headings are always ‘just a bit bigger’ than body copy.
- * Any font, size, color, etc. styling is done based on the purpose of the heading.
- * See classes below which detail styles for specific heading uses.
- */
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-    margin-top: 3rem;
-    font-family: $title-font;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: $primary-color;
-    text-transform: uppercase;
-}
-h1,
-.h1 {
-  font-size: 4rem;
-  margin: 0.8rem 0rem 1.2rem;
-  line-height: 1.2;
-}
-h2,
-.h2 {
-  font-size: 4rem;
-  margin-bottom: 1.6rem;
-  line-height: 1.2;
-}
-h3,
-.h3 {
-  font-size: 3rem;
-  margin-bottom: 1.4rem;
-  line-height: 1.2;
-}
-h4 {
-  font-size: 2.2rem;
-  margin-bottom: 1.2rem;
-}
-h5 {
-  font-size: 1.8rem;
-  margin-bottom: 1.2rem;
-}
-h6 {
-  font-size: 1.6rem;
-  margin-bottom: 1.2rem;
+// ====================
+// == Heading Styles ==
+// ====================
+
+// Dependencies - @include fheading() - /scss/utilities/mixins/_typography.scss
+
+// =====
+// All heading elements are styled by default to be just a bit bigger than body copy,
+// and to have a consistent margin-bottom.
+// All typographic treatments are handled with purpose-driven classnames, e.g. .c-heading--page
+// https://csswizardry.com/2016/02/managing-typography-on-large-apps/
+// =====
+%h1, .h1, h1,
+%h2, .h2, h2,
+%h3, .h3, h3,
+%h4, .h4, h4,
+%h5, .h5, h5,
+%h6, .h6, h6 {
+    font-family: $heading-font;
+    line-height: 1.3;
+    margin: rem-calc(0 0 3);
+    font-weight: normal;
 }
 
-h2:first-child,
-h3:first-child,
-h4:first-child {
-  margin-top: 0;
+// .c-heading--xx classes override the sizes given by default, and apply
+// style specific to a use case from the design.
+
+.c-heading--name {
+    font-size: rem-calc(22);
+    color: $white;
+}
+.c-heading--position {
+    font-size: rem-calc(16);
+    color: $white;
 }

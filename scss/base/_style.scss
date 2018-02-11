@@ -1,4 +1,7 @@
-// --------------- // Generic site styles // --------------- //
+// =========================
+// == Generic Site Styles ==
+// =========================
+
 *,
 *:after,
 *:before {
@@ -30,7 +33,7 @@ body {
 }
 
 body {
-  color: #body-text-color;
+  color: $body-text-color;
   font: normal 400 2rem/1.5 $body-font, Georgia, serif;
 }
 
@@ -263,6 +266,7 @@ select {
   cursor: pointer;
   white-space: nowrap;
   padding-right: rem-calc(45);
+  border-radius: 0;
 }
 .select {
   position: relative;

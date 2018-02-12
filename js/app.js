@@ -1,8 +1,9 @@
 let playerData = {};
 
-function loadJSON(callback) {
-    var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
+const loadJSON = callback => {
+    const xobj = new XMLHttpRequest();
+
+    xobj.overrideMimeType("application/json");
     xobj.open('GET', '/data/player-stats.json', true);
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
@@ -15,14 +16,10 @@ function loadJSON(callback) {
 
 const loadPlayerData = () => {
     loadJSON(function(response) {
-        // Parse JSON string into object
         playerData = JSON.parse(response);
 
-        console.log(playerData.players[0]);
-
-
         //populateSelector();
-        buildCard(playerData.players[0]);
+        buildCard(playerData.players[2]);
      });
 }
 
@@ -50,11 +47,15 @@ const getPosition = position => {
 }
 
 const getStat = stat => {
+    let val = 0;
+
     for (let i = 0; i < playerData.stats.length; i++) {
         if (stat == playerData.stats[i].name) {
-            return playerData.stats[i].value;
+            val = playerData.stats[i].value;
         }
     }
+
+    return (val !== 0 ? val : 0);
 }
 
 const getGoalsPerMatch = () => {

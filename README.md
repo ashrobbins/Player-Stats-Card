@@ -2,9 +2,11 @@
 
 ## Setup
 
-Clone the repo then run `npm install`.
+Clone the repo then `cd` into `Player-stats-Card` and run `npm install`.
 
-Run `gulp` to trigger the default task. This will kick off a watcher task looking for changes in any `.scss` or `.js` file.
+Run `npm install babel-preset-env --save-dev` to install Babel.
+
+Run `gulp` to trigger the default task. This will kick off an initial build and start watcher tasks looking for changes in any `.scss` or `.js` file.
 
 ## Prerequisites
 * NodeJS

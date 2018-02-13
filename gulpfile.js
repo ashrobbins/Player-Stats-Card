@@ -38,7 +38,7 @@ gulp.task("babel", function () {
 
 /* WATCHERS
 ---------------------*/
-// Watch files for changes and run the appropriate task
+// Watch files for changes and run the appropriate tasks
 gulp.task("watch_sass", function () {
     gulp.watch(scss_src + "*.scss", ["sass"]);
 });

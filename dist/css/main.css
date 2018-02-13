@@ -644,18 +644,20 @@ select {
   height: 4rem;
   padding: 0 1.4rem;
   background-color: #eaeaea;
-  background-image: url(../assets/select-arrow.png);
+  background-image: url(../../assets/select-arrow.png);
   background-position: calc(100% - 14px) 17px;
   background-repeat: no-repeat;
   border: 0;
   font-size: 1.6rem;
   line-height: 4rem; }
+  .c-playerSelector select::-ms-expand {
+    display: none; }
 
 .c-playerCard__image {
   position: relative;
   height: 22rem;
   margin: 0;
-  background-image: url(../assets/background-pattern.png);
+  background-image: url(../../assets/background-pattern.png);
   background-position: top right;
   background-repeat: no-repeat; }
 
@@ -696,7 +698,7 @@ select {
   height: 6.6rem;
   width: 6.6rem;
   background-color: transparent;
-  background-image: url(../assets/badges_sprite.png);
+  background-image: url(../../assets/badges_sprite.png);
   background-size: 792px 726px;
   border-radius: 20%; }
   .c-playerCard__badgeImage--21 {

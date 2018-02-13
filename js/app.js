@@ -1,4 +1,8 @@
 let playerData = {};
+let playerList = [];
+const selector = document.querySelectorAll(".js-playerSelector");
+const imageContainer = document.querySelectorAll(".js-playerCard__image")[0];
+const detailsContainer = document.querySelectorAll(".js-playerCard__details")[0];
 
 const loadJSON = callback => {
     const xobj = new XMLHttpRequest();
@@ -16,24 +20,78 @@ const loadJSON = callback => {
 
 const loadPlayerData = () => {
     loadJSON(function(response) {
-        playerData = JSON.parse(response);
+        playerList = JSON.parse(response);
 
-        //populateSelector();
-        buildCard(playerData.players[2]);
+        populateSelector();
      });
+}
+
+const populateSelector = () => {
+    for (let i = 0; i < playerList.players.length; i++) {
+        let player = playerList.players[i].player;
+        let option = document.createElement("option");
+        option.value = player.id;
+        option.innerHTML = `${player.name.first} ${player.name.last}`;
+
+        selector[0].appendChild(option);
+    }
+
+    selector[0].addEventListener("change", selectPlayer);
+}
+
+const selectPlayer = (e) => {
+    const id = selector[0].value;
+
+    for (let i = 0; i < playerList.players.length; i++) {
+        let player = playerList.players[i];
+
+        if (id == player.player.id) {
+            buildCard(player);
+        }
+        if (id == "") {
+            playerData = {};
+            clearCard();
+            hideCard();
+        }
+    }
+}
+
+const clearCard = () => {
+    imageContainer.innerHTML = "";
+    detailsContainer.innerHTML = "";
+}
+
+const showCard = () => {
+    if (imageContainer.classList) {
+        imageContainer.classList.remove("u-hidden");
+    }
+
+    if (detailsContainer.classList) {
+        detailsContainer.classList.remove("u-hidden");
+    }
+}
+
+const hideCard = () => {
+    if (imageContainer.classList) {
+        imageContainer.classList.add("u-hidden");
+    }
+
+    if (detailsContainer.classList) {
+        detailsContainer.classList.add("u-hidden");
+    }
 }
 
 const buildCard = selectedPlayer => {
     playerData = selectedPlayer;
     playerPhoto();
     playerDetails();
+    showCard();
 }
 
 const playerPhoto = selectedPlayer => {
     const cardImage = `<img src="assets/p${playerData.player.id}.png" alt="${playerData.player.name.first} ${playerData.player.name.last}" />`;
 
-    const imageContainer = document.querySelectorAll(".js-playerCard__image");
-    imageContainer[0].innerHTML = cardImage;
+    imageContainer.innerHTML = cardImage;
 }
 
 const getPosition = position => {
@@ -103,36 +161,37 @@ const getPassesPerMin = () => {
 
 const playerDetails = selectedPlayer => {
     const cardDetails = `
-    <h3 class="c-heading--name">${playerData.player.name.first} ${playerData.player.name.last}</h3>
-    <h4 class="c-heading--position">${getPosition(playerData.player.info.position)}</h4>
-    <img src="badge.png" alt="${playerData.player.currentTeam.name} badge" />
+        <h3 class="c-heading--name">${playerData.player.name.first} ${playerData.player.name.last}</h3>
+        <h4 class="c-heading--position">${getPosition(playerData.player.info.position)}</h4>
+        <span class="c-playerCard__badge">
+            <span class="c-playerCard__badgeImage c-playerCard__badgeImage--${playerData.player.currentTeam.id}"></span>
+        </span>
 
-    <ol class="c-playerCard__stats u-no-list">
-        <li>
-            <span class="c-statLabel">Appearances</span>
-            <span class="c-statDetail">${getStat("appearances")}</span>
-        </li>
-        <li>
-            <span class="c-statLabel">Goals</span>
-            <span class="c-statDetail">${getStat("goals")}</span>
-        </li>
-        <li>
-            <span class="c-statLabel">Assists</span>
-            <span class="c-statDetail">${getStat("goal_assist")}</span>
-        </li>
-        <li>
-            <span class="c-statLabel">Goals per match</span>
-            <span class="c-statDetail">${getGoalsPerMatch()}</span>
-        </li>
-        <li>
-            <span class="c-statLabel">Passes per minute</span>
-            <span class="c-statDetail">${getPassesPerMin()}</span>
-        </li>
-    </ol>
+        <ol class="c-playerCard__stats u-no-list">
+            <li>
+                <span class="c-statLabel">Appearances</span>
+                <span class="c-statDetail">${getStat("appearances")}</span>
+            </li>
+            <li>
+                <span class="c-statLabel">Goals</span>
+                <span class="c-statDetail">${getStat("goals")}</span>
+            </li>
+            <li>
+                <span class="c-statLabel">Assists</span>
+                <span class="c-statDetail">${getStat("goal_assist")}</span>
+            </li>
+            <li>
+                <span class="c-statLabel">Goals per match</span>
+                <span class="c-statDetail">${getGoalsPerMatch()}</span>
+            </li>
+            <li>
+                <span class="c-statLabel">Passes per minute</span>
+                <span class="c-statDetail">${getPassesPerMin()}</span>
+            </li>
+        </ol>
     `;
 
-    const detailsContainer = document.querySelectorAll(".js-playerCard__details");
-    detailsContainer[0].innerHTML = cardDetails;
+    detailsContainer.innerHTML = cardDetails;
 }
 
 loadPlayerData();

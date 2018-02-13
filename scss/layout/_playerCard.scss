@@ -14,12 +14,16 @@
     height: rem-calc(40);
     padding: rem-calc(0 14);
     background-color: $grey;
-    background-image: url(../assets/select-arrow.png);
+    background-image: url(../../assets/select-arrow.png);
     background-position: calc(100% - 14px) 17px;
     background-repeat: no-repeat;
     border: 0;
     font-size: rem-calc(16);
     line-height: rem-calc(40);
+
+    &::-ms-expand {
+        display: none;
+    }
 }
 
 
@@ -27,7 +31,7 @@
     position: relative;
     height: rem-calc(220);
     margin: 0;
-    background-image: url(../assets/background-pattern.png);
+    background-image: url(../../assets/background-pattern.png);
     background-position: top right;
     background-repeat: no-repeat;
 }
@@ -38,10 +42,11 @@
     width: rem-calc(170);
 }
 
-
 .c-playerCard__details {
+    position: relative;
     padding: rem-calc(16);
     background-color: $primary-color;
+    -webkit-font-smoothing: antialiased;
 }
 .c-playerCard__details [class^="c-heading"] {
     line-height: 1;
@@ -51,6 +56,42 @@
 }
 .c-playerCard__details .c-heading--position {
     margin-bottom: rem-calc(16);
+}
+.c-playerCard__badge {
+    position: absolute;
+    top: rem-calc(-36);
+    right: rem-calc(20);
+    width: rem-calc(82);
+    height: rem-calc(82);
+    padding: rem-calc(8);
+    border-radius: 50%;
+    background-color: $white;
+    font-size: rem-calc(12);
+}
+.c-playerCard__badgeImage {
+    display: block;
+    height: rem-calc(66);
+    width: rem-calc(66);
+    background-color: transparent;
+    background-image: url(../../assets/badges_sprite.png);
+    background-size: 792px 726px;
+    border-radius: 20%;
+
+    &--21 {
+        background-position: -330px -660px;
+    }
+    &--11 {
+        background-position: -528px -462px;
+    }
+    &--12 {
+        background-position: -396px -528px;
+    }
+    &--1 {
+        background-position: -66px -66px;
+    }
+    &--26 {
+        background-position: 0 0;
+    }
 }
 .c-playerCard__stats {
     width: 100%;
@@ -70,6 +111,7 @@
 }
 .c-statLabel {
     float: left;
+    font-size: rem-calc(16);
 }
 .c-statDetail {
     float: right;

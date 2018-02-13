@@ -2,52 +2,23 @@
 <html>
     <head>
         <title>Player Stats Card</title>
-        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link rel="stylesheet" type="text/css" href="dist/css/main.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#e5127d">
     </head>
     <body>
-        <div class="c-playerCard">
+        <div class="c-playerCard js-playerCard">
             <div class="c-playerSelector">
-                <select>
+                <select class="js-playerSelector">
                     <option value="">Select a player...</option>
                 </select>
             </div>
 
-            <figure class="c-playerCard__image js-playerCard__image">
-                <img src="assets/p4916.png" alt="Toby Alderweireld" />
-            </figure>
+            <figure class="c-playerCard__image js-playerCard__image u-hidden"></figure>
 
-            <div class="c-playerCard__details js-playerCard__details">
-                <h3 class="c-heading--name">Toby Alderweireld</h3>
-                <h4 class="c-heading--position">Defender</h4>
-                <img src="badge.png" alt="Tottenham Hotspur badge" />
-
-                <ol class="c-playerCard__stats u-no-list">
-                    <li>
-                        <span class="c-statLabel">Appearances</span>
-                        <span class="c-statDetail">80</span>
-                    </li>
-                    <li>
-                        <span class="c-statLabel">Goals</span>
-                        <span class="c-statDetail">5</span>
-                    </li>
-                    <li>
-                        <span class="c-statLabel">Assists</span>
-                        <span class="c-statDetail">2</span>
-                    </li>
-                    <li>
-                        <span class="c-statLabel">Goals per match</span>
-                        <span class="c-statDetail">0.06</span>
-                    </li>
-                    <li>
-                        <span class="c-statLabel">Passes per minute</span>
-                        <span class="c-statDetail">0.26</span>
-                    </li>
-                </ol>
-            </div>
+            <div class="c-playerCard__details js-playerCard__details u-hidden"></div>
         </div>
 
-        <script src="js/app.js"></script>
+        <script src="dist/js/app.js"></script>
     </body>
 </html>
